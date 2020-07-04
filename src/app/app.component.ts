@@ -12,9 +12,9 @@ export class AppComponent {
 
   constructor() {
     this.articles = [
-      new Article('Drones', 'www.DoD.ru', 43),
-      new Article('Full Stack', 'stack.io', 32),
-      new Article('Half Stack', 'half.org', 11)
+      new Article('Drones', 'http://www.DoD.ru', 43),
+      new Article('Full Stack', 'http://www.stack.io', 32),
+      new Article('Half Stack', 'http://www.half.org', 11)
     ];
   }
 
@@ -26,5 +26,9 @@ export class AppComponent {
     link.value = '';
 
     return false;
+  }
+
+  sortedArticles(): Article[] {
+    return this.articles.sort((a: Article, b: Article) => b.votes - a.votes);
   }
 }
